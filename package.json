@@ -1,7 +1,7 @@
 {
-  "name": "next-starter-tailwind",
-  "version": "2.0.0",
-  "description": "Next.js starter styled with Tailwind CSS",
+  "name": "next-tailwind-portfolio",
+  "version": "1.0.0",
+  "description": "Next.js portfolio styled with Tailwind",
   "main": "index.js",
   "scripts": {
     "dev": "next",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/taylorbryant/next-starter-tailwind.git"
+    "url": "git+https://github.com/yhlee-dho/next-tailwind-portfolio"
   },
-  "author": "Taylor Bryant",
+  "author": "Yong Lee",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/taylorbryant/next-starter-tailwind/issues"
+    "url": "https://github.com/yhlee-dho/next-tailwind-portfolio/issues"
   },
-  "homepage": "https://github.com/taylorbryant/next-starter-tailwind#readme",
+  "homepage": "https://github.com/yhlee-dho/next-tailwind-portfolio#readme",
   "dependencies": {
     "next": "11.1.2",
     "react": "17.0.2",
