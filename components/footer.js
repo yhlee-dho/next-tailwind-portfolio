@@ -5,12 +5,12 @@ export default function Footer() {
         <li>
           Created by{" "}
           <a
-            href="https://taylorbryant.dev/"
+            href="https://yhlee.io/"
             target="_blank"
             rel="noopener noreferrer"
             className="font-bold"
           >
-            Taylor Bryant
+            Yong Lee
           </a>
         </li>
 
