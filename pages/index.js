@@ -1,10 +1,12 @@
-import Intro from "@components/Intro";
+import Intro from "../components/Intro";
+import Feature from "../components/Feature";
 import Image from "next/image";
 
 export default function IndexPage() {
   return (
     <div className="flex flex-col items-center justify-center space-y-12 w-full">
       <Intro/>
+      <Feature/>
     </div>
   );
 }
