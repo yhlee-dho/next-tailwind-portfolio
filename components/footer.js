@@ -16,7 +16,7 @@ export default function Footer() {
 
         <li>
           <a
-            href="https://github.com/oddstronaut/next-starter-tailwind"
+            href="https://github.com/yhlee-dho/next-tailwind-portfolio"
             target="_blank"
             rel="noopener noreferrer"
             className="font-bold"
