@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import {projects} from '../lib/websiteData';
 import {GithubIcon, DeployIcon} from '../lib/icons';
 import Image from "next/image";
@@ -14,7 +15,7 @@ export default function Projects() {
               Projects
             </h2>
             <p className="text-xl text-primaryLight">
-              Here are some of the projects I'm working on.
+              Here are some of the projects I am working on.
             </p>
           </div>
           <div className="lg:col-span-2">
