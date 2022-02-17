@@ -24,7 +24,7 @@ export default function AboutPage() {
         </section>
       </div>
 
-      <Image
+      <img
         alt="A one-eyed alien holding a broken cable connected between a server and a desktop computer"
         src="/critter.svg"
         width={476}

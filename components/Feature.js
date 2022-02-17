@@ -85,7 +85,7 @@ export default function Feature() {
                   <div className="flex items-center justify-center h-12 w-20 rounded-md bg-backgroundShade">
                     {/* <div className="flex items-center justify-center"> */}
                     {/* <feature.icon className="h-6 w-6" aria-hidden="true" /> */}
-                    <Image
+                    <img
                       className="h-12 object-cover mx-4"
                       src={feature.src}
                       alt=""
