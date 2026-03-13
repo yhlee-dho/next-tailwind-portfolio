@@ -1,0 +1,29 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    {
+      "source": "/_hcms/:path*",
+      "destination": "/api/hubspot/_hcms/:path*"
+    },
+    {
+      "source": "/hs/:path*",
+      "destination": "/api/hubspot/hs/:path*"
+    },
+    {
+      "source": "/hubfs/:path*",
+      "destination": "/api/hubspot/hubfs/:path*"
+    },
+    {
+      "source": "/hs-fs/:path*",
+      "destination": "/api/hubspot/hs-fs/:path*"
+    },
+    {
+      "source": "/cs/c/:path*",
+      "destination": "/api/hubspot/cs/c/:path*"
+    },
+    {
+      "source": "/e3t/:path*",
+      "destination": "/api/hubspot/e3t/:path*"
+    }
+  ]
+}
