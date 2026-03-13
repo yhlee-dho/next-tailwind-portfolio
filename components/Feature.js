@@ -3,7 +3,7 @@ import {
   LightningBoltIcon,
   MailIcon,
   ScaleIcon,
-} from "@heroicons/react/outline";
+} from "@heroicons/react/24/outline";
 import { features } from "../lib/websiteData";
 import Image from "next/image";
 

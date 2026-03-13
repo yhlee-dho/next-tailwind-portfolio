@@ -6,16 +6,14 @@ import {
   CalendarIcon,
   ChartBarIcon,
   CursorClickIcon,
-  MenuIcon,
   PhoneIcon,
   PlayIcon,
   RefreshIcon,
   ShieldCheckIcon,
   SupportIcon,
   ViewGridIcon,
-  XIcon,
-} from "@heroicons/react/outline";
-import { ChevronDownIcon } from "@heroicons/react/solid";
+} from "@heroicons/react/24/outline";
+import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 
 function classNames(...classes) {

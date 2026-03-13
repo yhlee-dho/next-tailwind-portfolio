@@ -1,6 +1,6 @@
 import { Fragment, useState } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
+import { BellIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import {navigation} from '../lib/websiteData'
 
 function classNames(...classes) {
@@ -20,9 +20,9 @@ export default function Navigation() {
                 <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-secondary hover:bg-backgroundShade focus:outline-none focus:ring-2 focus:ring-inset focus:ring-secondaryShade">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
-                    <XIcon className="block h-6 w-6" aria-hidden="true" />
+                    <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
                   ) : (
-                    <MenuIcon className="block h-6 w-6" aria-hidden="true" />
+                    <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
                   )}
                 </Disclosure.Button>
               </div>

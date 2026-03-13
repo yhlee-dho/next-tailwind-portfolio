@@ -1,54 +1,105 @@
-# Next.js Starter Tailwind
+# Next.js Tailwind Portfolio
 
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+A personal portfolio built with [Next.js](https://nextjs.org) and [Tailwind CSS](https://tailwindcss.com), configured for deployment on Vercel with an optional HubSpot reverse proxy for serving HubSpot CMS content on a custom domain.
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+## Tech stack
 
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
+- **Next.js** 14 (Pages Router)
+- **React** 18
+- **Tailwind CSS** 3
+- **Node.js** 18+
+- **@headlessui/react** – accessible UI components
+- **@heroicons/react** – icons
+- **Vercel** – hosting and rewrites
 
-![alt text](https://github.com/taylorbryant/next-starter-tailwind/blob/master/public/screenshot.png "Screenshot of Tailwind Next.js Starter homepage")
+## Prerequisites
 
- <div align="center">
- <p><strong>A <a href="https://nextjs.org" target="_blank">Next.js</a> starter styled using <a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a>.</strong></p>
- <p>Uses Tailwind CSS' <a href="https://tailwindcss.com/docs/controlling-file-size" target="_blank">built-in purge option</a> to remove unused CSS.</p>
- <p>Illustrations by <a href="https://undraw.co/" target="_blank">unDraw</a>.</p>
- <p>View demo <a href="https://next-starter-tailwind.taylorbryant.dev" target="_blank">here</a>.</p>
-</div>
+- [Node.js](https://nodejs.org/) 18 or later  
+- npm (or yarn/pnpm)
 
-## Deploy
+If you use [nvm](https://github.com/nvm-sh/nvm), run `nvm use` in the project root to switch to the version in `.nvmrc`.
 
-### Vercel
+## Getting started
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/git?s=https%3A%2F%2Fgithub.com%2Ftaylorbryant%2Fnext-starter-tailwind%2Ftree%2Fmaster)
+```bash
+# Install dependencies
+npm install
+
+# Run the development server
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000).
+
+## Scripts
+
+| Command       | Description              |
+| ------------- | ------------------------ |
+| `npm run dev` | Start dev server         |
+| `npm run build` | Production build       |
+| `npm run start` | Start production server |
+| `npm run lint`  | Run ESLint              |
+
+## HubSpot reverse proxy
+
+The project can act as a reverse proxy for HubSpot CMS so that HubSpot content is served under your own domain (e.g. `yhlee.io`).
+
+### How it works
+
+1. **`vercel.json`** – Rewrites these paths to an internal API route:
+   - `/_hcms/*`
+   - `/hs/*`
+   - `/hubfs/*`
+   - `/hs-fs/*`
+   - `/cs/c/*`
+   - `/e3t/*`
+
+2. **`pages/api/hubspot/[...path].js`** – Proxies requests to the HubSpot CDN and adds the headers HubSpot expects:
+   - `X-HubSpot-Trust-Forwarded-For: true`
+   - `X-HS-Public-Host` (your public domain, e.g. `yhlee.io`)
+   - `X-Client-IP` (end user IP)
+   - `X-Forwarded-For`, `X-Forwarded-Proto`, `Host`
+
+The HubSpot origin is set to `50818869.sites-proxy.hscoscdn10.net`. To use a different Hub or region, change `HUBSPOT_ORIGIN` and `HUBSPOT_PUBLIC_HOST` in `pages/api/hubspot/[...path].js` (or move them to environment variables).
+
+### HubSpot setup
+
+1. In HubSpot: **Settings → Website → Domains & URLs** → add your domain with “Connect with HubSpot’s built-in CDN” **off**.
+2. Verify the proxy: **Verify Reverse Proxy Connection** for the domain, and visit `https://yourdomain.com/_hcms/diagnostics` and `https://yourdomain.com/_hcms/_worker/headers` to confirm headers.
+
+See [HubSpot’s reverse proxy setup guide](https://developers.hubspot.com/docs/cms/best-practices/testing-staging-performance/reverse-proxies/setup) for full details.
+
+## Deployment (Vercel)
+
+1. Push the repo to GitHub and [import it in Vercel](https://vercel.com/new).
+2. Vercel will use the `engines.node` field in `package.json` (Node 18+).
+3. Deploy; the `vercel.json` rewrites and HubSpot proxy will apply in production.
+
+To use a custom domain (e.g. `yhlee.io`), add it in the Vercel project’s **Settings → Domains** and ensure `HUBSPOT_PUBLIC_HOST` in the API route matches that domain.
+
+## Project structure
+
+```
+├── components/       # React components (header, footer, Intro, Feature, etc.)
+├── lib/              # Data and icon helpers (websiteData, icons)
+├── pages/            # Next.js pages and API routes
+│   ├── api/hubspot/  # HubSpot proxy handler
+│   ├── _app.js
+│   ├── index.js
+│   └── about.js
+├── public/           # Static assets
+├── css/              # Global styles (Tailwind)
+├── next.config.js    # Next.js config (images, etc.)
+├── tailwind.config.js
+├── vercel.json       # Rewrites for HubSpot paths
+└── .nvmrc            # Node 18 for nvm
+```
 
 ## License
 
-[MIT](https://github.com/taylorbryant/next-starter-tailwind/blob/master/LICENSE.md)
+MIT. See [LICENSE](LICENSE) in this repo.
 
-## How you can help
+## Links
 
-Enjoying this starter and want to help? You can:
-
-- [Create an issue](https://github.com/taylorbryant/next-starter-tailwind/issues/new) with some constructive criticism
-- [Submit a pull request](https://github.com/taylorbryant/next-starter-tailwind/compare) with some improvements to the project
-
-## Contributors ✨
-
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tr>
-    <td align="center"><a href="https://github.com/Mozart409"><img src="https://avatars2.githubusercontent.com/u/38767929?v=4" width="100px;" alt=""/><br /><sub><b>Amadeus</b></sub></a><br /><a href="https://github.com/taylorbryant/next-starter-tailwind/commits?author=Mozart409" title="Code">💻</a> <a href="#ideas-Mozart409" title="Ideas, Planning, & Feedback">🤔</a></td>
-    <td align="center"><a href="https://www.synaptech.fr"><img src="https://avatars3.githubusercontent.com/u/10560326?v=4" width="100px;" alt=""/><br /><sub><b>David Eugene</b></sub></a><br /><a href="https://github.com/taylorbryant/next-starter-tailwind/commits?author=egdavid" title="Code">💻</a></td>
-  </tr>
-</table>
-
-<!-- markdownlint-enable -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+- [Repository](https://github.com/yhlee-dho/next-tailwind-portfolio)
+- [Issues](https://github.com/yhlee-dho/next-tailwind-portfolio/issues)
